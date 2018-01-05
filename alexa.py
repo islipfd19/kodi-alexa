@@ -1840,34 +1840,6 @@ def alexa_ejectmedia(kodi):
 
   return question(card_title)
 
-# Handle the SwitchOnTV intent.
-@ask.intent('SwitchOnTV')
-@preflight_check
-def alexa_switchontv(kodi):
-  card_title = render_template('switch_on_tv').encode('utf-8')
-  log.info(card_title)
-  kodi.AddonExecute(addon_id="script.json-cec", params={"command":"activate"})
-
-  if not 'queries_keep_open' in session.attributes:
-    return statement(card_title).simple_card(card_title, '')
-
-  return question(card_title)
-
-# Handle the SwitchOffTV intent.
-@ask.intent('SwitchOffTV')
-@preflight_check
-def alexa_switchofftv(kodi):
-  card_title = render_template('switch_off_tv').encode('utf-8')
-  log.info(card_title)
-
-  kodi.AddonExecute(addon_id="script.json-cec", params={"command":"standby"})
-
-
-  if not 'queries_keep_open' in session.attributes:
-    return statement(card_title).simple_card(card_title, '')
-
-  return question(card_title)
-
 # Handle the CleanVideo intent.
 @ask.intent('CleanVideo')
 @preflight_check
@@ -1929,6 +1901,34 @@ def alexa_addon_execute(kodi, Addon):
     response_text = render_template('could_not_find_addon', heard_addon=Addon).encode('utf-8')
 
   return statement(response_text).simple_card(card_title, response_text)
+
+# Handle the SwitchOnTV intent.
+@ask.intent('SwitchOnTV')
+@preflight_check
+def alexa_switchontv(kodi):
+  card_title = render_template('switch_on_tv').encode('utf-8')
+  log.info(card_title)
+  kodi.AddonExecute(addon_id="script.json-cec", params={"command":"activate"})
+
+  if not 'queries_keep_open' in session.attributes:
+    return statement(card_title).simple_card(card_title, '')
+
+  return question(card_title)
+
+# Handle the SwitchOffTV intent.
+@ask.intent('SwitchOffTV')
+@preflight_check
+def alexa_switchofftv(kodi):
+  card_title = render_template('switch_off_tv').encode('utf-8')
+  log.info(card_title)
+
+  kodi.AddonExecute(addon_id="script.json-cec", params={"command":"standby"})
+
+
+  if not 'queries_keep_open' in session.attributes:
+    return statement(card_title).simple_card(card_title, '')
+
+  return question(card_title)
 
 # Handle the AddonGlobalSearch intent.
 @ask.intent('AddonGlobalSearch')
