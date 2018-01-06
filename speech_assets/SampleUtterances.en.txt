@@ -85,14 +85,22 @@ CurrentPlayItemTimeRemaining when will this end
 Down down
 Down go down
 Down navigate down
-SwitchOnTV switch on the tv
-SwitchOnTV switch on tv
+SwitchOnTV switch on the t. v.
+SwitchOnTV switch on t. v.
 SwitchOnTV switch on the television
 SwitchOnTV switch on television
-SwitchOffTV switch off the tv
-SwitchOffTV switch off tv
+SwitchOnTV turn on the t. v.
+SwitchOnTV turn on t. v.
+SwitchOnTV turn on the television
+SwitchOnTV turn on television
+SwitchOffTV switch off the t. v.
+SwitchOffTV switch off t. v.
 SwitchOffTV switch off the television
 SwitchOffTV switch off television
+SwitchOffTV turn off the t. v.
+SwitchOffTV turn off t. v.
+SwitchOffTV turn off the television
+SwitchOffTV turn off television
 EjectMedia eject
 EjectMedia eject audio disc
 EjectMedia eject blu-ray
