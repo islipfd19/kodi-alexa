@@ -1903,6 +1903,32 @@ def alexa_update_audio(kodi):
   return statement(card_title).simple_card(card_title, '')
 
 
+# Handle the HDHomerun intent.
+@ask.intent('HDHomerun')
+@preflight_check
+def alexa_hdhomerun(kodi):
+  card_title = render_template('open_hdhomerun').encode('utf-8')
+  log.info(card_title)
+
+  status = kodi.GetPlayerStatus()
+  if status['state'] is not 'stop':
+    log.info("Player is running, stopping player")
+    kodi.PlayerStop()
+    kodi.Home()
+    kodi.AddonExecute(addon_id="script.hdhomerun.view", params={"command":"activate"})
+    return statement(card_title).simple_card(card_title, '')
+  else:
+    log.info("Player is not running")
+    kodi.Home()
+    kodi.AddonExecute(addon_id="script.hdhomerun.view", params={"command":"activate"})
+    return statement(card_title).simple_card(card_title, '')
+
+  if not 'queries_keep_open' in session.attributes:
+    return statement(card_title).simple_card(card_title, '')
+
+  return question(card_title)
+
+
 # Handle the AddonExecute intent.
 @ask.intent('AddonExecute')
 @preflight_check

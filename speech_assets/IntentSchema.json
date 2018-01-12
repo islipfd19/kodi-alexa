@@ -764,6 +764,9 @@
       ]
     },
     {
+      "intent": "HDHomerun"
+    },
+    {
       "intent": "AddonGlobalSearch",
       "slots": [
         {

@@ -395,6 +395,10 @@ albums_by: "Albums by {{ heard_artist }}"
 
 open_addon: "Opening addon"
 
+open_hdhomerun: "Opening h. d. home run"
+
+close_hdhomerun: "Closing h. d. home run"
+
 search: "Search"
 
 help_card: "Help"
